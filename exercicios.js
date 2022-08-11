@@ -44,10 +44,11 @@ let listaDePessoas = [
   function numeroDePessoasMaiorIdade (lista) {
     let listaDePessoas = {};
     listaDePessoas.idade = lista.filter(pessoas => pessoas.idade >= 18)
-    return listaDePessoas 
+    return listaDePessoas.idade.length
 }
 
 console.log(numeroDePessoasMaiorIdade(listaDePessoas));
+
 
 
 
@@ -73,9 +74,10 @@ Ex: [1,2,3,4,5]
 saida: 15
 */
 
+
 let  numeros = [1, 2, 3, 4, 5];
- var total = numeros.reduce((total, numero) => total + numero, 0);
-  console.log(total);
+let  total = numeros.reduce((total, numero) => total + numero, 0); // começa do zero
+console.log(total);  // reduce tem o acumulador
 
 
 
