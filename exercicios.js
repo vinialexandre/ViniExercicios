@@ -7,23 +7,23 @@ console.log(listaString)
 
 
 
-
-
-
 /* 2) Desenvolva uma funcção que receba 2 números, e retorne apenas os números pares entre o intervalo dos mesmos.
 Ex: 1 a 10
 saida: 2,4,6,8,10 */
 
-function numPares (numeros) {
-  for (let i = 1; i <= 10; i++){
-     if (i%2==0)  {
-         console.log(i)
-     }
-        
-  }     
-
+function retornarNumerosParesEntreDoisNumeros(x, y) {
+  // verifica se x é par (se não for, soma 1)
+  if (x % 2 != 0) {
+      x++; // x passa a ser par
+  }
+  // nesse ponto eu garanti que x é par
+  while (x <= y) {
+    console.log(x)
+      x += 2; // soma 2, assim já vai para o próximo número par
+  }
 }
-numPares(1, 10)
+retornarNumerosParesEntreDoisNumeros(1,10);
+
 
 
 
@@ -41,14 +41,13 @@ let listaDePessoas = [
     {nome : 'vitoria', idade:7}
   ]
   
-  function numeroDePessoasMaiorIdade (lista) {
-    let listaDePessoas = {};
-    listaDePessoas.idade = lista.filter(pessoas => pessoas.idade >= 18)
-    return listaDePessoas.idade.length
+  
+function numeroDePessoasMaiorIdade (lista) {
+     let quantidadeDePessoasPorIdade = [];
+     quantidadeDePessoasPorIdade = lista.filter(function(pessoa) { return (pessoa.idade >=18); }).length
+          return  quantidadeDePessoasPorIdade
 }
-
 console.log(numeroDePessoasMaiorIdade(listaDePessoas));
-
 
 
 
@@ -57,9 +56,7 @@ console.log(numeroDePessoasMaiorIdade(listaDePessoas));
 */
 function inverterLista (lista) {
    let novaLista = []
-   novaLista = lista.reverse(e => e)
-   return novaLista
- 
+   return novaLista = lista.reverse();
 }
 
 console.log(inverterLista(['um', 'dois', 'tres', 'quatro']));
@@ -75,9 +72,12 @@ saida: 15
 */
 
 
-let  numeros = [1, 2, 3, 4, 5];
-let  total = numeros.reduce((total, numero) => total + numero, 0); // começa do zero
-console.log(total);  // reduce tem o acumulador
+let  listaDeNumeros = [1, 2, 3, 4, 5];
+function somarNumeros (lista) {
+    let  total = lista.reduce((total, numero) => total + numero, 0); // começa do zero
+    return total
+}
+console.log(somarNumeros(listaDeNumeros)); // reduce tem o acumulador
 
 
 
