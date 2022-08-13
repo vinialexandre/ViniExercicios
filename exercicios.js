@@ -13,21 +13,17 @@ saida: 2,4,6,8,10 */
 
  
   function retornarNumerosParesEntreDoisNumeros(num1,num2){
-    let listaDePares = []  
-        while(num1<=num2){
-            if(num1%2==0){
-            listaDePares.push(num1)
-            }
-        num1++    
-        }
-    return listaDePares
-    }
-
-   console.log(retornarNumerosParesEntreDoisNumeros(1,10))
+      let listaDePares = []  
+      while(num1<=num2) {
+          if(num1%2==0) {
+              listaDePares.push(num1)
+          } 
+          num1++    
+      }
+      return listaDePares
+  }
+  console.log(retornarNumerosParesEntreDoisNumeros(1,10))
   
-
-
-
 
 
 /* 3) Implemente a função numeroDePessoasMaiorDeIdade que recebe uma lista como argumento
