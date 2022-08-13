@@ -11,18 +11,21 @@ console.log(listaString)
 Ex: 1 a 10
 saida: 2,4,6,8,10 */
 
-function retornarNumerosParesEntreDoisNumeros(x, y) {
-  // verifica se x é par (se não for, soma 1)
-  if (x % 2 != 0) {
-      x++; // x passa a ser par
-  }
-  // nesse ponto eu garanti que x é par
-  while (x <= y) {
-    console.log(x)
-      x += 2; // soma 2, assim já vai para o próximo número par
-  }
-}
-retornarNumerosParesEntreDoisNumeros(1,10);
+ 
+  function retornarNumerosParesEntreDoisNumeros(num1,num2){
+    let listaDePares = []  
+        while(num1<=num2){
+            if(num1%2==0){
+            listaDePares.push(num1)
+            }
+        num1++    
+        }
+    return listaDePares
+    }
+
+   console.log(retornarNumerosParesEntreDoisNumeros(1,10))
+  
+
 
 
 
@@ -43,9 +46,9 @@ let listaDePessoas = [
   
   
 function numeroDePessoasMaiorIdade (lista) {
-     let quantidadeDePessoasPorIdade = [];
-     quantidadeDePessoasPorIdade = lista.filter(function(pessoa) { return (pessoa.idade >=18); }).length
-          return  quantidadeDePessoasPorIdade
+   let quantidadeDePessoasPorIdade = [];
+   quantidadeDePessoasPorIdade = lista.filter(function(pessoa) { return (pessoa.idade >=18); }).length
+   return  quantidadeDePessoasPorIdade
 }
 console.log(numeroDePessoasMaiorIdade(listaDePessoas));
 
