@@ -12,17 +12,17 @@ Ex: 1 a 10
 saida: 2,4,6,8,10 */
 
  
-  function retornarNumerosParesEntreDoisNumeros(num1,num2){
-      let listaDePares = []  
-      while(num1<=num2) {
-          if(num1%2==0) {
-              listaDePares.push(num1)
-          } 
-          num1++    
-      }
-      return listaDePares
-  }
-  console.log(retornarNumerosParesEntreDoisNumeros(1,10))
+function retornarNumerosParesEntreDoisNumeros(num1,num2){
+    let listaDePares = []  
+    while(num1<=num2) {
+        if(num1%2==0) {
+            listaDePares.push(num1)
+        } 
+        num1++    
+    }
+    return listaDePares
+}
+console.log(retornarNumerosParesEntreDoisNumeros(1,10))
   
 
 
@@ -42,8 +42,8 @@ let listaDePessoas = [
   
   
 function numeroDePessoasMaiorIdade (lista) {
-   let quantidadeDePessoasPorIdade = [];
-   quantidadeDePessoasPorIdade = lista.filter(function(pessoa) { return (pessoa.idade >=18); }).length
+   let quantidadeDePessoasPorIdade = 0;
+   quantidadeDePessoasPorIdade = lista.filter(pessoa => pessoa.idade >=18).length
    return  quantidadeDePessoasPorIdade
 }
 console.log(numeroDePessoasMaiorIdade(listaDePessoas));
@@ -54,8 +54,7 @@ console.log(numeroDePessoasMaiorIdade(listaDePessoas));
 4) Crie uma função que receba um array/lista e retorne a lista ao contrário!
 */
 function inverterLista (lista) {
-   let novaLista = []
-   return novaLista = lista.reverse();
+   return lista.reverse();
 }
 
 console.log(inverterLista(['um', 'dois', 'tres', 'quatro']));
