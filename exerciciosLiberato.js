@@ -57,8 +57,7 @@ prato montado pelo cliente (em quilos) e retorne o valor a pagar. Assuma que a
 balança já desconte o peso do prato
 */
 
+let pesoDoPratoMontadoPeloCliente = parseFloat(prompt('Digite o peso'))
+console.log(`Seu almoço custará R$ ${(pesoDoPratoMontadoPeloCliente * 28).toFixed(2).replace(".", ",")} reais`)
 
-let pesoRecebidoNaBalanca = prompt('Qual peso na balança com o prato?')
-let pesoPrato = prompt('Qual o peso do prato?')
-let valorAPagar = (28/1000 ) * (pesoRecebidoNaBalanca - pesoPrato)
-console.log(`O valor de sua refeição será R$ ${(valorAPagar).toFixed(2).replace(".", ",")} reais`) 
+
