@@ -1,42 +1,75 @@
 //1) - Crie uma função que retorna a string "Olá, " concatenada com um argumento text (a ser passado para a
 //função) e com ponto de exclamação "!" no final.
 //Exemplos:
-cumprimentar("Leonardo") // retornará "Olá, Leonardo!"
-cumprimentar("Maria") // retornará "Olá, Maria!"
 
-
+function cumprimetarPessoa(nomePessoa) {
+  return `Olá ${nomePessoa}!`
+}
+console.log(cumprimetarPessoa('Adriana'));
 
 
 //2) - Escreva uma função que receba a idade de uma pessoa em anos e retorne a mesma idade em dias.
 // Obs: considere que um ano tem 365 dias. Desconsidere anos bissextos (com 366 dias) e
 //desconsidere também dias decorridos desde o último aniversário.
 //Exemplos:
+
+function converterIdadeEmAnosParaDias (idade) {
+    return idade * 365
+}
 converterIdadeEmAnosParaDias(25) // retornará 9125
-converterIdadeEmAnosParaDias(70) // retornará 25550
-
-
-
-
 
 
 //3) - Desenvolva uma função que recebe dois parâmetros, um é a quantidade de horas trabalhadas por um
 //funcionário num mês, e o quanto ele recebe por hora. O retorno da função deve ser a string "Salário igual a R$
 //X", em que X é o quanto o funcionário ganhou no mês.
 //Exemplos:
-calcularSalario(150, 40.5) // retornará "Salário igual a R$ 6075"
-
-
-
+function calcularSalario(quantHoras, valorHora) {
+   return `Salário igual a R$ ${quantHoras * valorHora}`
+}
+console.log(calcularSalario(150, 40.5));// retornará "Salário igual a R$ 6075"
 
 
 //4) - Crie uma função que recebe um número (de 1 a 12 e retorne o mês correspondente como uma string. Por
 //exemplo, se a entrada for 2, a função deverá retornar "fevereiro", pois este é o 2° mês.
 //Exemplos:
+function nomeDoMes(numeroMes) {
+  switch(numeroMes) {
+    case 1 : 
+       return "janeiro";
+    case 2 : 
+       return "fevereiro";
+    case 3 : 
+       return "março";
+    case 4 : 
+       return "abril";
+    case 5 : 
+       return "maio"; 
+    case 6 :
+       return "junho";
+    case 7 :  
+       return "julho";    
+    case 8 : 
+       return "agosto"; 
+    case 9 :  
+       return "setembro";
+    case 10 : 
+       return "outubro";
+    case 11 : 
+       return "novembro";
+    case 12 :
+       return  "dezembro";
+  }
+
+}
 nomeDoMes(1) // retornará "janeiro"
+
+//EXEMPLO ABAIXO DA UDEMY ACHEI MUITO LEGAL NÃO CONHECIA
+function receberNomeDoMes(numero) {
+  const mapeamento = ['janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho', 'julho',
+  'agosto', 'setembro', 'outubro', 'novembro', 'dezembro']
+  return mapeamento[--numero];
+}
 nomeDoMes(4) // retornará "abril"
-
-
-
 
 
 
@@ -44,13 +77,16 @@ nomeDoMes(4) // retornará "abril"
 
 //5) - Crie uma função que receba dois números e retorne se o primeiro é maior ou igual ao segundo.
 //Exemplos:
+
+
+function maiorOuIgual(primeiro, segundo) {
+  if(typeof primeiro != typeof segundo) return false
+  return primeiro >= segundo
+}
+
 maiorOuIgual(0, 0) // retornará true
 maiorOuIgual(0, "0") // retornará false
-maiorOuIgual(5, 1) // retornará false
-
-
-
-
+maiorOuIgual(5, 1) // retornará true
 
 
 
@@ -59,8 +95,11 @@ retorno da função deverá ser o inverso. Por exemplo, se a entrada for false, 
 numérico, o retorno será o número inverso. Por exemplo, se for fornecido 1, o retorno será 1. Se o parâmetro
 de entrada não for de nenhum dos tipo acima, retorne "booleano ou número esperados, mas o parâmetro é do
 tipo ...".
-Exemplos:
-Exercícios - Curso Fundamentos de Programação 2*/
+Exemplos:*/
+
+
+
+
 inverso(true) // retornará false
 inverso("6") // retornará "booleano ou número esperados, mas o parâmetro é do tipo string"
 inverso(-2000) // retornará 2000
@@ -85,16 +124,25 @@ estaEntre(3, 150, 3, true) // retornará true
 /*8) - Desenvolva uma função que recebe dois números inteiros não negativos (maiores ou iguais a zero) e realize a
 multiplicação deles. Porém, não utilize o operador de mutiplicação.
 Exemplo:*/
-multiplicar(5, 5) // retornará 25
-multiplicar(0, 7) // retornará 0
 
+
+function multiplicar(numeroA, numeroB) {
+  let resultado = 0
+  for(let i = 0; i < numeroB; i++)
+  resultado += numeroA
+  return resultado
+}
+multiplicar(5, 5) // retornará 25
 
 
 
 /*9) - Escreva uma função que receba dois parâmetros. O primeiro parâmetro é o elemento que repetirá, enquanto
 que o segundo será o número de vezes que haverá repetição. Um array será retornado.
 Exemplos: */
-repetir("código", 2) // retornará ["código", "código"]
+function repetir ( elemento, numDeRepeticoes) {
+   return Array(numDeRepeticoes).fill(elemento);
+}
+//repetir("código", 2) // retornará ["código", "código"]
 repetir(7, 3) // retornará [7, 7, 7]
 
 
@@ -103,6 +151,13 @@ repetir(7, 3) // retornará [7, 7, 7]
 /*10) - Elabore uma função que recebe um número como parâmetro e retorne uma string com o símbolo "+" na
 quantidade especificada no parâmetro.
 Exemplos:*/
+function simboloMais (quantSimbolo) {
+  let res = ''
+  for(let i = 0; i< quantSimbolo; i++) {
+    res += '+'
+  }
+  return res
+}
 simboloMais(2) // retornará "++"
 simboloMais(4) // retornará "++++"
 
@@ -111,10 +166,13 @@ simboloMais(4) // retornará "++++"
 /*11) - Crie uma função que receba uma array e retorne o primeiro e o último elemento desse array como um novo
 array:
 Exemplos:*/
+function receberPrimeiroEUltimoElemento(elementos) {
+  const primeiroElemento= elementos.shift()
+  const ultimoElemento = elementos.pop()
+  return [primeiroElemento, ultimoElemento]
+}
 receberPrimeiroEUltimoElemento([7,14,"olá"]) // retornará [7, "olá"]
 receberPrimeiroEUltimoElemento([-100, "aplicativo", 16]) // retornará [-100, 16]
-
-
 
 
 
@@ -129,6 +187,11 @@ Você escreverá uma função que recebe um objeto como primeiro parâmetro e, c
 nome de uma propriedade contida nesse objeto. Em seguida, retorne uma cópia desse objeto sem a
 propriedade especificada no segundo parâmetro.
 Exemplos: */
+function removerPropriedade (obj, propriedade) {
+   let copia = Object.assign({}, obj);
+   delete copia[propriedade]
+   return copia
+}
 removerPropriedade({a: 1, b: 2}, "a") // retornará {b: 2}
 removerPropriedade({
 id: 20,
@@ -145,6 +208,10 @@ Retornará false se o objeto não for o mesmo.
 Crie uma função que receba um array de elementos e retorne um array somente com os números presentes no
 array recebido como parâmetro.
 Exemplos:*/
+
+function filtrarNumeros(lista) {
+  return lista.filter(item => typeof item === "number")
+}
 filtrarNumeros(["Javascript", 1, "3", "Web", 20]) // retornará [1, 20]
 filtrarNumeros(["a", "c"]) // retornará []
 
