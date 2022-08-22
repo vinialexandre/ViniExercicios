@@ -216,6 +216,10 @@ filtrarNumeros(["Javascript", 1, "3", "Web", 20]) // retornará [1, 20]
 filtrarNumeros(["a", "c"]) // retornará []
 
 
+
+
+
+
 /*14) - Desenvolva uma função que recebe como parâmetro um objeto e retorne um array de arrays, em que cada
 elemento é um array formado pelos pares chave/valor que corresponde a um atributo do objeto. Observe os
 exemplos abaixo para um melhor entendimento:
@@ -244,8 +248,6 @@ receberSomenteOsParesDeIndicesPares([10, 70, 22, 43]) // retornará [10, 22]
 
 
 
-
-
 /*16) - A fim de manter o calendário anual ajustado com o movimento de translação da Terra, criou-se os anos
 bissextos, que têm 366 dias em vez dos 365 presentes nos anos normais.
 Para determinar se um ano é bissexto, é necessário saber se ele é multiplo de 4. Não pode ser múltiplo de 100,
@@ -253,6 +255,13 @@ exceto se for também múltiplo de 400.
 Com isso em mente, desenvolva uma função que recebe um número correspondente a um ano e retorna se ele
 é bissexto ou não.
 Exemplos:*/
+
+function checarAnoBissexto(ano) {
+   const divisivelPorQuatro = ano % 4 == 0
+   const divisivelPorCem = ano % 100 == 0
+   const divisivelPorQuatrocentos = ano % 400 == 0
+   return (divisivelPorQuatro && !divisivelPorCem) || divisivelPorQuatrocentos
+}
 checarAnoBissexto(2020) // retornará true
 checarAnoBissexto(2100) // retornará false, pois é múltiplo de 100 e não é múltiplo de 400
 
@@ -263,6 +272,10 @@ checarAnoBissexto(2100) // retornará false, pois é múltiplo de 100 e não é 
 
 /*17) - Escreva uma função que receba um array de números e retornará a soma de todos os números desse array.
 Exemplos:*/
+function somarNumeros(numeros) {
+   const soma = numeros.reduce( (acumulador, numeroAtual) => acumulador + numeroAtual, 0)
+   return soma
+}
 somarNumeros([10, 10, 10]) // retornará 30
 somarNumeros([15, 15, 15, 15]) // retornará 60
 
@@ -275,6 +288,12 @@ possível adicionar produtos ou serviços, informando nome, categoria e preço. 
 está desenvolvendo no momento é a de somar o total das despesas.
 Crie uma função que receba um array de produtos e retorne o total das despesas.
 Exemplos:*/
+function despesasTotais(itens) {
+   let total = 0
+   for (let item of itens)
+   total += item.preco
+   return total
+}
 despesasTotais([
 {nome: "Jornal online", categoria: "Informação", preco: 89.99},
 {nome: "Cinema", categoria: "Entretenimento", preco: 150}
