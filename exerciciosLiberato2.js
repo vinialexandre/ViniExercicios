@@ -114,18 +114,25 @@ let valorContaLuz = parseFloat(prompt('Digite o valor da conta de luz'));
 let valorContaAgua= parseFloat(prompt('Digite o valor da conta água'));
 let diasDeAtraso= parseInt(prompt('Digite quantidade de dias em atraso'));
 
-valorContaLuz = valorContaLuz * (2/100) + valorContaLuz
-valorContaAgua = valorContaAgua * (2/100) + valorContaAgua
-if(diasDeAtraso===0 && diasDeAtraso==='') { 
-  console.log(salarioLiquido - valorContaLuz, salarioLiquido - valorContaAgua)
+
+if(diasDeAtraso > 0 && !isNaN(diasDeAtraso)) { 
+  valorContaLuz = valorContaLuz * 0.02 + valorContaLuz
+  valorContaAgua = valorContaAgua * 0.02 + valorContaAgua
+
+  valorContaLuz = parseFloat(((valorContaLuz * 0.003) * diasDeAtraso + valorContaLuz).toFixed(2))
+  valorContaAgua = parseFloat(((valorContaAgua * 0.003) * diasDeAtraso + valorContaAgua).toFixed(2))
+  salarioLiquido = parseFloat((salarioLiquido  -  (valorContaLuz + valorContaAgua)).toFixed(2))
+
+  console.log (`A conta de luz será R$${valorContaLuz.toString().replace(',', '.')} com ${diasDeAtraso} dias de atraso`)
+  console.log (`A conta de água será R$${valorContaAgua.toString().replace(',', '.')} com ${diasDeAtraso} dias de atraso`)
+  console.log (`Restará R$${salarioLiquido.toString().replace(',', '.')} de salário líquido`)
 }else{
-  console.log (`A conta de luz será ${valorContaLuz = valorContaLuz * (0.03/100) * diasDeAtraso + valorContaLuz} com ${diasDeAtraso} dias de atraso`)
-  console.log (`A conta de água será ${valorContaAgua = valorContaAgua * (0.03/100) * diasDeAtraso + valorContaAgua} com ${diasDeAtraso} dias de atraso`)
-  console.log (`Restará ${salarioLiquido  -  (valorContaLuz + valorContaAgua)} de salário líquido`)
+  salarioLiquido = (salarioLiquido  -  (valorContaLuz + valorContaAgua)).toFixed(2)
+
+  console.log (`A conta de luz será ${valorContaLuz.replace(',', '.')} com ${diasDeAtraso} dias de atraso`)
+  console.log (`A conta de água será ${valorContaAgua.replace(',', '.')} com ${diasDeAtraso} dias de atraso`)
+  console.log (`Restará R$${salarioLiquido.replace(',', '.')} de salário líquido`)
 }
-
-
-
 
 
 /*
@@ -140,3 +147,15 @@ relação ao total de eleitores):
 ● Percentual de votos válidos;
 ● Percentual de votos brancos;
 ● Percentual de votos nulos*/ 
+
+let numeroTotalDeEleitores 
+let numeroDeVotosValidos = parseInt(prompt ('Qual número de votos válidos?'))
+let numeroDeVotosNulos = parseInt(prompt('Qual o número de votos nulos?'));
+let numeroDeVotosBrancos = parseInt(prompt('Qual o número de votos em branco?'));
+                               
+numeroTotalDeEleitores = numeroDeVotosValidos + numeroDeVotosBrancos + numeroDeVotosNulos
+numeroDeVotosValidos = parseFloat(((numeroDeVotosValidos/numeroTotalDeEleitores) * 100).toFixed(2));
+numeroDeVotosBrancos = parseFloat(((numeroDeVotosBrancos/numeroTotalDeEleitores) * 100).toFixed(2));
+numeroDeVotosNulos = parseFloat(((numeroDeVotosNulos/numeroTotalDeEleitores) * 100).toFixed(2));
+console.log(`Foram ${numeroTotalDeEleitores} eleitores no total`)
+console.log (`Sendo que ${numeroDeVotosValidos}% de votos válidos, ${numeroDeVotosNulos}% de votos nulos e , ${numeroDeVotosBrancos}% de votos em brancos`)
