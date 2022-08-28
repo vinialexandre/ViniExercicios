@@ -36,7 +36,7 @@ calculado.*/
 function calcularTempoDoTrajeto() {
    let distancia = Number(prompt('Qual a distância percorrida?'))
    let velocidade = Number(prompt('Qual velocidade do veículo?'))
-   return (`Esta viagem durará ${distancia/velocidade}horas`)
+   return `Esta viagem durará ${distancia/velocidade}horas`
 }
 console.log(calcularTempoDoTrajeto())
 
@@ -49,7 +49,7 @@ function numParImpar(num) {
   if(num%2==0) {
     return ('Esse número é par')
   }else{
-    return ('Esse número é ´ímpar')
+    return ('Esse número é ímpar')
   }
 }
 console.log(numParImpar(num))
@@ -70,6 +70,7 @@ console.log(somarNumeros(listaNotas));
 /*
 6. Desenvolva um algoritmo para ler as três notas de um aluno em uma disciplina e
 exibe a sua média ponderada (as notas tem pesos respectivos de 1, 2 e 3).*/
+
 let n1 = parseFloat(prompt('Digite sua primeira nota em Matemática'));
 let n2 = parseFloat(prompt('Digite sua segunda nota em Matemática'));
 let n3 = parseFloat(prompt('Digite sua terceira nota em Matemática'));
@@ -134,7 +135,6 @@ b) a idade dessa pessoa em meses;
 c) a idade dessa pessoa em dias;
 d) a idade dessa pessoa em semanas.*/
 
-
 let anoAtual= Number(parseInt(prompt('Digite ano atual:')));
 let anoNascimento = Number(parseInt(prompt('Digite seu ano de nescimento:')));
 
@@ -143,7 +143,7 @@ function calcularIdade (anoAtual, anoNascimento) {
   let idadeEmMeses = idadeEmAnos * 12
   let idadeEmDias = idadeEmMeses * 31
   let idadeEmSemanas =  (idadeEmDias / 7).toFixed(0)
-  return (`Idade em anos ${idadeEmAnos} Idade em meses ${idadeEmMeses} idade em dias ${idadeEmDias} idade em semanas ${idadeEmSemanas}`)
+  return (`Idade em anos ${idadeEmAnos} , em meses ${idadeEmMeses} , em dias ${idadeEmDias} e em semanas ${idadeEmSemanas}`)
 }
 console.log(calcularIdade(anoAtual, anoNascimento));
 
@@ -153,22 +153,27 @@ C1 e C2. Como as contas estão atrasadas, João terá de pagar multa de 2% sobre
 cada conta, mais o percentual de 0,03% por dia de atraso. Faça um algoritmo que lê o
 valor de cada uma das contas e quantos dias estão atrasadas. Calcule e mostre o
 valor de cada conta paga e quanto restará do salário do João Felipe.*/
+
 let contaDeLuz = Number(parseInt(prompt('Digite o valor da conta de luz')));
 let contaDeAgua = Number(parseInt(prompt('Digite o valor da conta de água')));
 let diasDeAtraso = Number(parseInt(prompt('Digite os dias de atraso')));
 let salario = 1200
-let multa = (2/100)*100 //aqui da 2%
-let juros = (0,03/100)*100 // aqui da 0,03
+let multa = 0.02
+let juros = diasDeAtraso * 0.003
+
 function calcularContasJurosEMulta(contaDeLuz, contaDeAgua, diasDeAtraso ) {
   let contaLuzComJuros
   let contaAguaComJuros
   if(diasDeAtraso == 0 && !isNaN(diasDeAtraso)) {
-    return (`Conta de luz sem multa/juros ${contaDeLuz}, conta de água sem multa/juros ${contaDeAgua}`)
+    console.log(`Conta de luz R$ ${contaDeLuz} reais, e de água R$ ${contaDeAgua} reais`);
+    console.log(`Restaram de salário R$ ${salario - (contaDeLuz + contaDeAgua)} reais`);
   }else{
-    console.log(`${contaLuzComJuros = (contaDeLuz * multa) + (juros * diasDeAtraso) + contaDeLuz }`)
-    console.log(`${contaAguaComJuros = (contaDeAgua * multa) + (juros * diasDeAtraso) + contaDeAgua }`)
+    console.log(`Conta de luz valor com multa e juros R$ ${contaLuzComJuros = contaDeLuz + (contaDeLuz * multa) + (contaDeLuz * juros)} reais`);
+    console.log(`Conta de água valor com multa e juros R$ ${contaAguaComJuros = contaDeAgua + (contaDeAgua * multa) + (contaDeAgua * juros)} reais`);
+    console.log(`Restaram de salário R$ ${salario - (contaLuzComJuros + contaAguaComJuros)} reais`);
   }
 }
+
 console.log(calcularContasJurosEMulta(contaDeLuz, contaDeAgua, diasDeAtraso));
 
 
