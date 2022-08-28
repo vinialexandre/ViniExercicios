@@ -190,3 +190,19 @@ relação ao total de eleitores:
 ● Percentual de votos brancos;
 ● Percentual de votos nulos*/ 
 
+let numeroTotalDeEleitores;
+let numeroDeVotosValidos = parseInt(prompt('Quantos votos válidos?'))
+let numeroDeVotosBrancos = parseInt(prompt('Quantos votos em branco?'))
+let numeroDeVotosNulos = parseInt(prompt('Quantos votos nulos?'))
+
+function apurarVotos ( validos, brancos, nulos) {
+  numeroTotalDeEleitores = numeroDeVotosValidos + numeroDeVotosBrancos + numeroDeVotosNulos
+  numeroDeVotosValidos = parseFloat(((numeroDeVotosValidos/numeroTotalDeEleitores) * 100).toFixed(2));
+  numeroDeVotosBrancos = parseFloat(((numeroDeVotosBrancos/numeroTotalDeEleitores) * 100).toFixed(2));
+  numeroDeVotosNulos = parseFloat(((numeroDeVotosNulos/numeroTotalDeEleitores) * 100).toFixed(2));
+  console.log(`Foram ${numeroTotalDeEleitores} eleitores no total`)
+  console.log (`Sendo que ${numeroDeVotosValidos}% de votos válidos, ${numeroDeVotosBrancos}% de votos em brancos e ${numeroDeVotosNulos}% de votos nulos `)
+}
+console.log(apurarVotos(numeroDeVotosValidos, numeroDeVotosBrancos, numeroDeVotosNulos));
+
+
