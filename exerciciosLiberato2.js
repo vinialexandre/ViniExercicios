@@ -24,7 +24,7 @@ calculado.*/
 
 let velocidadeMedia = prompt('Digite a velocidade ');
 let distancia = prompt('Digite a distância percorrida');
-console.log(" O tempo desta viagem será de " , distancia/velocidadeMedia)
+console.log(" O tempo desta viagem será de " ,  distancia/velocidadeMedia )
 
 
 /*
@@ -55,7 +55,6 @@ console.log(parseFloat(soma).toFixed(2))
 /*
 6. Desenvolva um algoritmo para ler as três notas de um aluno em uma disciplina e
 exibe a sua média ponderada (as notas tem pesos respectivos de 1, 2 e 3).*/
-
 
 let N1 = parseFloat(prompt('Digite sua primeira nota em Matemática'));
 let N2 = parseFloat(prompt('Digite sua segunda nota em Matemática'));
@@ -122,7 +121,7 @@ if(diasDeAtraso > 0 && !isNaN(diasDeAtraso)) {
   valorContaLuz = parseFloat(((valorContaLuz * 0.003) * diasDeAtraso + valorContaLuz).toFixed(2))
   valorContaAgua = parseFloat(((valorContaAgua * 0.003) * diasDeAtraso + valorContaAgua).toFixed(2))
   salarioLiquido = parseFloat((salarioLiquido  -  (valorContaLuz + valorContaAgua)).toFixed(2))
-
+  
   console.log (`A conta de luz será R$${valorContaLuz.toString().replace(',', '.')} com ${diasDeAtraso} dias de atraso`)
   console.log (`A conta de água será R$${valorContaAgua.toString().replace(',', '.')} com ${diasDeAtraso} dias de atraso`)
   console.log (`Restará R$${salarioLiquido.toString().replace(',', '.')} de salário líquido`)
@@ -143,7 +142,7 @@ A entrada de dados será:
 ● Número de votos brancos;
 ● Número de votos nulos.
 O algoritmo deve calcular e exibir para o usuário as seguintes informações (em
-relação ao total de eleitores):
+relação ao total de eleitores:
 ● Percentual de votos válidos;
 ● Percentual de votos brancos;
 ● Percentual de votos nulos*/ 
