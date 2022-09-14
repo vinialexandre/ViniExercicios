@@ -7,7 +7,6 @@ não votar este ano , considerando que se sua idade for menor que 16 anos não
 pode, se for maior ou igual a 16 anos pode votar.
 */
 
-
 const dataAtual = new Date();
 const anoAtual = dataAtual.getFullYear();
 const anoDeNascimento = prompt('Em que ano você nasceu?');
@@ -21,7 +20,6 @@ function calcularIdade(anoDeNascimento) {
    }
 }   
 console.log(calcularIdade(anoDeNascimento));
-
 
 
 /*
@@ -43,15 +41,13 @@ function mostrarConceitoDoAluno(notas) {
     console.log('Seu conceito de avaliação foi D')
     }else if(notas === 6 || notas === 7) {
       console.log('Seu conceito de avaliação foi C')
-    }else if (notas === 8 || notas === 9) {
+    }else if(notas === 8 || notas === 9) {
       console.log('Seu conceito de avaliação foi B')
     }else{
       console.log('Sei conceito de avaliação foi A')
     }
 }
 mostrarConceitoDoAluno(notas);
-
-
 
 
 /*
@@ -79,7 +75,6 @@ function mostrarConceitoDoAluno(letras) {
 mostrarConceitoDoAluno(letras);
 
 
-
 /*
 4. Escreva um algoritmo para representar o funcionamento de uma calculadora.
 Primeiramente, leia dois números reais. Em seguida, apresente as opções: ‘1’ =
@@ -87,9 +82,11 @@ soma, ‘2’ = subtração, ‘3’ = multiplicação, ‘4’ = divisão. Conf
 selecionada, realize o cálculo correspondente com os dois números lidos.
 */
 
-let num1 = parseFloat(prompt('Digite um numero real'));
-let num2 = parseFloat(prompt('Digite outro numero real'));
+let num1 = prompt('Digite um numero real')
+let num2 = prompt('Digite outro numero real')
 let tipoDeOperacao = parseInt(prompt('Escolha a operação desejada: \n Opção 1: Soma \n Opção 2: Subtração \n Opção 3: Multiplicação \n Opção 4: Divisão' ))
+num1 = parseFloat((num1).replace(",","."))
+num2 = parseFloat((num2).replace(",","."))
 
 function calcularOperacao(num1, num2) {
   let resultado;
@@ -110,9 +107,7 @@ function calcularOperacao(num1, num2) {
   return resultado
 
 }
-calcularOperacao(num1,num2);
-
-
+calcularOperacao(num1,num2)
 
 
 /*
@@ -123,16 +118,16 @@ se o empréstimo pode ser concedido.
 */
 
 let salario = prompt('Qual valor do salário?');
-let valorEmprestimo = prompt('Qual valor do emprestimo?');
+let valorEmprestimo = prompt('Qual valor do empréstimo?');
 let quantasParcelas = prompt('Informe em quantas parcelas gostarias de fazer:');
 
-function calcularEmprestimo ( salario, valorEmprestimo, quantasParcelas) {
+function calcularEmprestimo( salario, valorEmprestimo, quantasParcelas) {
   let valordaParcela = valorEmprestimo/quantasParcelas 
   let prestacaoPercentual = (salario / 100) * 30
-  if (valordaParcela <= prestacaoPercentual)  {
-    console.log('Ok emprestimo APROVADO')
+  if (valordaParcela <= prestacaoPercentual) {
+    return alert('Ok empréstimo APROVADO')
   }else{
-    console.log('Emprestimo NÃO APROVADO!! O valor da parcela ultrapassou 30% do seu salário');
+    return alert('Empréstimo NÃO APROVADO!! O valor da parcela ultrapassou 30% do seu salário');
   }
 }
 calcularEmprestimo(salario,valorEmprestimo,quantasParcelas);
@@ -148,14 +143,14 @@ dentro da velocidade permitida.
 
 let velocidade = prompt('Qual a velocidade do carro?');
 let multa = 5
-
 let velocidadePermitida = 80
+
 function calcularVelocidade (velocidade) {
   let valorDaMulta 
   if (velocidade > velocidadePermitida) {
-    return console.log(`Você foi multado em R$ ${valorDaMulta = (velocidade - velocidadePermitida) * multa} reais`)
+    return alert(`Você foi multado em R$ ${valorDaMulta = (velocidade - velocidadePermitida) * multa} reais`)
   }else{
-    console.log('Parabéns, veículo dentro da velocidade permitida! Boa Viagem!!')
+    return alert('Parabéns, veículo dentro da velocidade permitida! Boa Viagem!!')
   }
 }
 calcularVelocidade(velocidade);
@@ -174,18 +169,17 @@ let ano_Atual = data_atual.getFullYear();
 let ano_nascimento = prompt('Em que ano você nasceu?');
 let anosPosIdadeAlistamento;
 let anosFaltantesParaAlistamento;
-let IdadeParaAlistamento = 18
+let IdadeParaAlistamento = 18;
+
 function alistamentoMilitar(ano_Atual , ano_nascimento) {
   let idade = ano_Atual - ano_nascimento
-   if (idade < IdadeParaAlistamento) {
-     return  (`Faltam ${anosFaltantesParaAlistamento = IdadeParaAlistamento - idade} anos para você se alistar`)
-   }else{
-     return (`Já se passaram ${anosPosIdadeAlistamento = idade - IdadeParaAlistamento} do seu alistamento`);
-   }
+  if (idade < IdadeParaAlistamento) {
+    return  alert(`Faltam ${anosFaltantesParaAlistamento = IdadeParaAlistamento - idade} anos para você se alistar`)
+  }else{
+    return alert(`Já se passaram ${anosPosIdadeAlistamento = idade - IdadeParaAlistamento} anos do seu alistamento`);
+  }
 }   
 console.log(alistamentoMilitar(ano_Atual , ano_nascimento));
-
-
 
 
 /*
@@ -194,6 +188,18 @@ em Km. Calcule o preço da passagem, cobrando R$0.50 por Km para viagens até
 200Km e R$0.45 para viagens mais longas.
 */
 
+let distancia = prompt('Quall distância você gostaria de percorrer?Em Km...')
+let valorDokmAteDuzentos = 0.50
+let viagemMaisLongas = 0.45
+
+function calcularValorPassagem(distancia ) {
+  if(distancia <= 200) {
+    return distancia * valorDokmAteDuzentos
+  }else{
+    return distancia * viagemMaisLongas
+  }
+}
+calcularValorPassagem(distancia)
 
 
 /*
@@ -205,6 +211,16 @@ classificação desse terreno, de acordo com a lista abaixo:
 - Acima de 500m² = TERRENO VIP
 */
 
+let largura = prompt('Qual a largura do terreno?');
+let comprimento = prompt('Qual o comprimento do terreno?');
+let area = largura * comprimento
+if (area < 100) {
+  console.log('Terreno Popular')
+  } else if (area >= 100 && area <= 500) {
+    console.log('Terreno Master')
+  } else {
+    console.log('Terreno VIP')
+  }
 
 
 /*
@@ -222,3 +238,37 @@ consulte um médico se permanecer 1 dia.
 38,6 até 39,5 Febre alta Consulte um médico.
 39,6 até 42,0 Febre muito alta Dirija-se à um serviço de urgência médica
 */
+
+let nome = prompt('Qual seu nome?');
+let temperatura = prompt('Qual sua temperatura corporal?');
+temperatura = parseFloat((temperatura).replace(",","."))
+
+function verificarTemperatura(temperatura) {
+
+  if(temperatura <= 25.8) {
+    return ('Hipotermia Consulte um médico');
+  } else if (temperatura >= 25.9 && temperatura <= 35.8) {
+    return ('Temperatura baixa agasálhe-se e observe');
+  } else if (temperatura >=35.9 && temperatura <= 37.0) {
+    return ('Normal Você está bem');
+  } else if (temperatura >= 3.,1 && temperatura <= 37.5) {
+    return ('Elevada Descanse um pouco');
+  } else if (temperatura >= 37.6 && temperatura <= 38.00) {
+    return ('Febre ligeira , meça a temperatura regularmente e descanse');
+  } else if (temperatura >= 38.1 && temperatura <= 38.5) {
+    return ('Febre moderada Meça a temperatura regularmente consulte um médico se permanecer 1 dia');
+  } else if (temperatura >= 38.6 && temperatura <= 39.5) {
+    return ('Febre alta Consulte um médico');
+  }else{
+    return ('Febre muito alta Dirija-se à um serviço de urgência médica');
+  }
+
+}  
+verificarTemperatura(temperatura);
+
+
+
+
+
+
+
