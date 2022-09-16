@@ -39,13 +39,13 @@ function mostrarConceitoDoAluno(notas) {
     console.log('Seu conceito de avaliação foi  E')
   }else if(notas >= 3 && notas <= 5) {
     console.log('Seu conceito de avaliação foi D')
-    }else if(notas === 6 || notas === 7) {
-      console.log('Seu conceito de avaliação foi C')
-    }else if(notas === 8 || notas === 9) {
-      console.log('Seu conceito de avaliação foi B')
-    }else{
-      console.log('Sei conceito de avaliação foi A')
-    }
+  }else if(notas === 6 || notas === 7) {
+    console.log('Seu conceito de avaliação foi C')
+  }else if(notas === 8 || notas === 9) {
+    console.log('Seu conceito de avaliação foi B')
+  }else{
+    console.log('Sei conceito de avaliação foi A')
+  }
 }
 mostrarConceitoDoAluno(notas);
 
@@ -64,13 +64,13 @@ let letras= prompt('Digite a letra A, B ou C');
 function mostrarConceitoDoAluno(letras) {
   if(letras === "A") {
     alert('Você digitou a letra A') 
-    }else if(letras ==="B") {
-      alert('Você digitou a letra B')
-    }else if(letras === "C") {
-      alert('Você digitou a letra C')
-    }else{
-      alert('opção inválida')
-    }
+  }else if(letras ==="B") {
+    alert('Você digitou a letra B')
+  }else if(letras === "C") {
+    alert('Você digitou a letra C')
+  }else{
+    alert('opção inválida')
+  }
 }
 mostrarConceitoDoAluno(letras);
 
@@ -85,8 +85,8 @@ selecionada, realize o cálculo correspondente com os dois números lidos.
 let num1 = prompt('Digite um numero real')
 let num2 = prompt('Digite outro numero real')
 let tipoDeOperacao = parseInt(prompt('Escolha a operação desejada: \n Opção 1: Soma \n Opção 2: Subtração \n Opção 3: Multiplicação \n Opção 4: Divisão' ))
-num1 = parseFloat((num1).replace(",","."))
-num2 = parseFloat((num2).replace(",","."))
+num1 = parseFloat(num1.replace(",","."))
+num2 = parseFloat(num2.replace(",","."))
 
 function calcularOperacao(num1, num2) {
   let resultado;
@@ -145,10 +145,11 @@ let velocidade = prompt('Qual a velocidade do carro?');
 let multa = 5
 let velocidadePermitida = 80
 
-function calcularVelocidade (velocidade) {
+function calcularVelocidade(velocidade) {
   let valorDaMulta 
   if (velocidade > velocidadePermitida) {
-    return alert(`Você foi multado em R$ ${valorDaMulta = (velocidade - velocidadePermitida) * multa} reais`)
+    valorDaMulta = (velocidade - velocidadePermitida) * multa
+    return alert(`Você foi multado em R$ ${valorDaMulta} reais`)
   }else{
     return alert('Parabéns, veículo dentro da velocidade permitida! Boa Viagem!!')
   }
@@ -174,9 +175,11 @@ let IdadeParaAlistamento = 18;
 function alistamentoMilitar(ano_Atual , ano_nascimento) {
   let idade = ano_Atual - ano_nascimento
   if (idade < IdadeParaAlistamento) {
-    return  alert(`Faltam ${anosFaltantesParaAlistamento = IdadeParaAlistamento - idade} anos para você se alistar`)
+    anosFaltantesParaAlistamento = IdadeParaAlistamento - idade
+    return  alert(`Faltam ${anosFaltantesParaAlistamento} anos para você se alistar`)
   }else{
-    return alert(`Já se passaram ${anosPosIdadeAlistamento = idade - IdadeParaAlistamento} anos do seu alistamento`);
+    anosPosIdadeAlistamento = idade - IdadeParaAlistamento
+    return alert(`Já se passaram ${anosPosIdadeAlistamento} anos do seu alistamento`);
   }
 }   
 console.log(alistamentoMilitar(ano_Atual , ano_nascimento));
@@ -192,7 +195,7 @@ let distancia = prompt('Quall distância você gostaria de percorrer?Em Km...')
 let valorDokmAteDuzentos = 0.50
 let viagemMaisLongas = 0.45
 
-function calcularValorPassagem(distancia ) {
+function calcularValorPassagem(distancia) {
   if(distancia <= 200) {
     return distancia * valorDokmAteDuzentos
   }else{
@@ -213,14 +216,19 @@ classificação desse terreno, de acordo com a lista abaixo:
 
 let largura = prompt('Qual a largura do terreno?');
 let comprimento = prompt('Qual o comprimento do terreno?');
-let area = largura * comprimento
-if (area < 100) {
-  console.log('Terreno Popular')
+
+function calcularTerreno(largura, comprimento){
+  let area = largura * comprimento
+  if (area < 100) {
+    return 'Terreno Popular'
   } else if (area >= 100 && area <= 500) {
-    console.log('Terreno Master')
+    return 'Terreno Master'
   } else {
-    console.log('Terreno VIP')
+    return 'Terreno VIP'
   }
+}
+
+calcularTerreno(largura, comprimento)
 
 
 /*
@@ -241,10 +249,13 @@ consulte um médico se permanecer 1 dia.
 
 let nome = prompt('Qual seu nome?');
 let temperatura = prompt('Qual sua temperatura corporal?');
-temperatura = parseFloat((temperatura).replace(",","."))
+temperatura = tratarVirgula(temperatura)
+
+function tratarVirgula(numeroTexto){
+    return parseFloat((temperatura).replace(",","."))
+}
 
 function verificarTemperatura(temperatura) {
-
   if(temperatura <= 25.8) {
     return ('Hipotermia Consulte um médico');
   } else if (temperatura >= 25.9 && temperatura <= 35.8) {
@@ -262,13 +273,6 @@ function verificarTemperatura(temperatura) {
   }else{
     return ('Febre muito alta Dirija-se à um serviço de urgência médica');
   }
-
 }  
+
 verificarTemperatura(temperatura);
-
-
-
-
-
-
-
